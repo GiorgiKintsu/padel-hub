@@ -41,7 +41,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "check": "npm run lint && npm run typecheck && npm test"
   },
   "private": true
 }

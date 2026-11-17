@@ -31,7 +31,5 @@ Android-ზე გამოიყენე ემულატორი ან Ex
 `mobile/` საქაღალდიდან:
 
 ```sh
-npm run lint
-npm run typecheck
-node tests/booking.test.cjs
+npm run check
 ```

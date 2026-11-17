@@ -1,0 +1,6 @@
+# One line-ending style on every machine (the project is edited on both Linux and Windows).
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary

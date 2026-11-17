@@ -31,12 +31,10 @@ Use the current QR code and keep the development server running. Tunnel URLs are
 
 ## Verification
 
-On 2026-11-16, lint, TypeScript checks, and all eight booking model tests passed. Android and iOS bundles were also compiled successfully during localization verification. These checks do not replace testing on physical devices.
+On 2026-11-16, after the code was restructured, lint, TypeScript checks, and all 32 domain and translation tests passed, and the full booking path was walked through in the web preview. The Android and iOS bundles were last compiled before that restructuring. These checks do not replace testing on physical devices.
 
 ```sh
-npm run lint
-npm run typecheck
-node tests/booking.test.cjs
+npm run check   # lint + typecheck + tests
 ```
 
 Project requirements and current implementation status are recorded in `docs/PADEL_HUB_FULL_DOCUMENTATION.md`.
