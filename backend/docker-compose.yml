@@ -1,0 +1,38 @@
+# Local development stack: PostgreSQL (+ optionally the API itself).
+#   docker compose up -d db          -> only the database; run the API with `npm run start:dev`
+#   docker compose up --build        -> database + API in containers (API on http://localhost:3000)
+# The credentials below are throw-away local values.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: padel
+      POSTGRES_PASSWORD: padel_dev_only
+      POSTGRES_DB: padel_hub
+    ports:
+      - "5432:5432"
+    volumes:
+      - padel_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U padel -d padel_hub"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      PORT: "3000"
+      DATABASE_URL: postgresql://padel:padel_dev_only@db:5432/padel_hub
+      MIGRATE_ON_BOOT: "true"
+      JOBS_ENABLED: "true"
+      SWAGGER_ENABLED: "true"
+    ports:
+      - "3000:3000"
+
+volumes:
+  padel_pgdata:

@@ -1,0 +1,23 @@
+// Prisma is used as the query client for ordinary data.
+// SCHEMA CHANGES ARE NOT MADE WITH `prisma migrate`: every change is a hand-written SQL file in
+// `backend/migrations/` applied by our own migration runner (see backend/README.md). This file is a
+// hand-maintained mirror of the tables Prisma needs to query. Constraints Prisma cannot express
+// (EXCLUDE on time ranges, partial indexes, ...) live only in the SQL migrations.
+
+generator client {
+  provider   = "prisma-client"
+  output     = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AppMeta {
+  key       String   @id
+  value     String
+  updatedAt DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  @@map("app_meta")
+}

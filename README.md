@@ -5,6 +5,7 @@
 ## პროექტის სტრუქტურა
 
 - [`mobile/`](mobile/) — React Native + Expo + TypeScript აპი და მისი გაშვების ინსტრუქციები.
+- [`backend/`](backend/) — NestJS + PostgreSQL ბექენდი (ეტაპი A: საფუძველი) და მისი გაშვების ინსტრუქციები.
 - [`docs/PADEL_HUB_FULL_DOCUMENTATION.md`](docs/PADEL_HUB_FULL_DOCUMENTATION.md) — შეთანხმებული მოთხოვნები, ბიზნესწესები და პროექტის მიმდინარე მდგომარეობა.
 - [`ENVIRONMENT.md`](ENVIRONMENT.md) — სამუშაო გარემოს მოწყობის ინსტრუქციები.
 
